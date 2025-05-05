@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projeto-pucminas-eixo2", "projeto-pucminas-eixo2\projeto-pucminas-eixo2.csproj", "{BF1EFE34-A160-439E-A104-BE22A88E61C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF1EFE34-A160-439E-A104-BE22A88E61C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1EFE34-A160-439E-A104-BE22A88E61C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1EFE34-A160-439E-A104-BE22A88E61C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1EFE34-A160-439E-A104-BE22A88E61C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4E74464-EC30-431C-B9FE-E489AE33DF35}
+	EndGlobalSection
+EndGlobal
