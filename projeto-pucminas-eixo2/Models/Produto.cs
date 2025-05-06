@@ -15,10 +15,6 @@ namespace projeto_pucminas_eixo2.Models
         [Required(ErrorMessage = "Obrigatório informar a marca.")]
         public string Marca { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o prazo de validade.")]
-        [Display(Name = "Validade")]
-        public int PrazoValidade { get; set; }
-
         [Required(ErrorMessage = "Obrigatório informar o valor do produto.")]
         [Display(Name = "Valor do produto")]
         public decimal ValorProduto { get; set; }
