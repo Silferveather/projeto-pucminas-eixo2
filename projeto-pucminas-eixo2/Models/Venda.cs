@@ -31,7 +31,7 @@ namespace projeto_pucminas_eixo2.Models
         public int ProdutoId { get; set; }
 
         [ForeignKey("ProdutoId")]
-        public Produto produto { get; set; }
+        public Produto Produto { get; set; }
     }
 
     public enum TipoPagamento

@@ -1,0 +1,95 @@
+﻿@model projeto_pucminas_eixo2.Models.Venda
+
+@{
+    ViewData["Title"] = "Criar Venda";
+}
+
+<h2>Criar Venda</h2>
+
+<form asp-action="Create" method="post">
+    <!-- Campo Cliente -->
+    <div class="form-group">
+        <label asp-for="Cliente" class="control-label"></label>
+        <input asp-for="Cliente" class="form-control" />
+        <span asp-validation-for="Cliente" class="text-danger"></span>
+    </div>
+
+    <!-- Campo Data -->
+    <div class="form-group">
+        <label asp-for="Data" class="control-label"></label>
+        <input asp-for="Data" class="form-control" type="date" />
+        <span asp-validation-for="Data" class="text-danger"></span>
+    </div>
+
+    <!-- Dropdown de Produtos -->
+    <div class="form-group">
+        <label for="ProdutoId">Produto</label>
+        <select id="ProdutoId" name="ProdutoId" class="form-control">
+            <option value="">Selecione...</option>
+            @foreach (var produto in ViewBag.Produtos)
+            {
+                <option value="@produto.Id" data-valor="@produto.ValorProduto">@produto.Nome</option>
+            }
+        </select>
+        <span asp-validation-for="ProdutoId" class="text-danger"></span>
+    </div>
+
+    <!-- Campo de Valor (preenchido automaticamente) -->
+    <div class="form-group">
+        <label for="Valor">Valor</label>
+        <input type="text" id="Valor" name="Valor" class="form-control" readonly />
+        <span asp-validation-for="Valor" class="text-danger"></span>
+    </div>
+
+    <!-- Campo Quantidade -->
+    <div class="form-group">
+        <label asp-for="QuantidadeVenda" class="control-label"></label>
+        <input asp-for="QuantidadeVenda" class="form-control" id="QuantidadeVenda" />
+        <span asp-validation-for="QuantidadeVenda" class="text-danger"></span>
+    </div>
+
+    <!-- Campo Valor Total -->
+    <div class="form-group">
+        <label for="ValorTotal">Valor Total</label>
+        <input type="text" id="ValorTotal" name="ValorTotal" class="form-control" readonly />
+    </div>
+
+    <!-- Campo Tipo de Pagamento -->
+    <div class="form-group">
+        <label asp-for="Tipo" class="control-label"></label>
+        <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<TipoPagamento>()"></select>
+        <span asp-validation-for="Tipo" class="text-danger"></span>
+        <p></p>
+    </div>
+
+    <!-- Botões de Submit e Cancelar -->
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        // Função para calcular o valor total
+        function calcularValorTotal() {
+            var valor = parseFloat(document.getElementById("Valor").value) || 0;
+            var quantidade = parseInt(document.getElementById("QuantidadeVenda").value) || 0;
+            var valorTotal = valor * quantidade;
+            document.getElementById("ValorTotal").value = valorTotal.toFixed(2);
+        }
+
+        // Script para preencher o campo de "Valor" automaticamente quando o produto for selecionado
+        document.getElementById("ProdutoId").addEventListener("change", function () {
+            const selected = this.options[this.selectedIndex];
+            const valor = selected.getAttribute("data-valor");
+            document.getElementById("Valor").value = valor ?? "0.00";
+            calcularValorTotal(); // Atualiza o valor total ao selecionar um produto
+        });
+
+        // Script para calcular o valor total quando a quantidade mudar
+        document.getElementById("QuantidadeVenda").addEventListener("input", calcularValorTotal);
+    </script>
+}
