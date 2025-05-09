@@ -20,12 +20,14 @@ namespace projeto_pucminas_eixo2.Models
         public decimal Valor { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a quantidade.")]
+        [Display(Name = "Quantidade")]
         public int QuantidadeVenda { get; set; }
 
         [Display(Name = "Tipo de pagamento")]
         public TipoPagamento Tipo { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o produto.")]
+        [Display(Name = "Produto")]
         public int ProdutoId { get; set; }
 
         [ForeignKey("ProdutoId")]
