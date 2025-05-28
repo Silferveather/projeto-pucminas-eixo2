@@ -17,10 +17,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
-}
-
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 85%;
@@ -33,17 +29,22 @@ body {
 
 #navegacao {
     grid-area: navegacao;
-    background-color: #f8f9fa;
+    background-color: #2a74c0;
 }
 
 #conteudo {
     grid-area: conteudo;
     padding: 1rem;
+    background-color: #e1e4e8;
 }
 
 #rodape {
     grid-area: rodape;
-    background-color: #e9ecef;
+    background-color: #e1e4e8;
     text-align: center;
     line-height: 60px;
+}
+
+#teste {
+    background-color: #2a74c0;
 }
