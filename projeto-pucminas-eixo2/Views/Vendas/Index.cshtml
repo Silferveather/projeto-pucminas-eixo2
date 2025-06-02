@@ -17,8 +17,8 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Data)
-            </th>
-            <th>
+			</th>
+			<th>
 				@Html.DisplayNameFor(model => model.QuantidadeVenda)
 			</th>
             <th>
@@ -44,13 +44,13 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
+			</td>
+			<td>
 				@Html.DisplayFor(modelItem => item.QuantidadeVenda)
 			</td>
             <td>
                 @(item.Valor.ToString("C"))
-            </td>
+            </td>   
             <td>
                 @((item.Valor * item.QuantidadeVenda).ToString("C"))
             </td>
