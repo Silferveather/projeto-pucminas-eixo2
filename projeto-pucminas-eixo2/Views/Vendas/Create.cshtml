@@ -17,7 +17,7 @@
     <!-- Campo Data -->
     <div class="form-group">
         <label asp-for="Data" class="control-label"></label>
-        <input asp-for="Data" class="form-control" type="date" />
+        <input asp-for="Data" class="form-control" type="text" />
         <span asp-validation-for="Data" class="text-danger"></span>
     </div>
 
@@ -72,20 +72,31 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
     <script>
+        // Inicializa o datepicker com formato brasileiro
+        $(function () {
+            $("input[name='Data']").datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+        });
+
         // Função para calcular o valor total
         function calcularValorTotal() {
-            var valor = parseFloat(document.getElementById("Valor").value) || 0;
+            var valor = parseFloat(document.getElementById("Valor").value.replace(",", ".")) || 0;
             var quantidade = parseInt(document.getElementById("QuantidadeVenda").value) || 0;
             var valorTotal = valor * quantidade;
-            document.getElementById("ValorTotal").value = valorTotal.toFixed(2);
+            document.getElementById("ValorTotal").value = valorTotal.toFixed(2).replace(".", ",");
         }
 
         // Script para preencher o campo de "Valor" automaticamente quando o produto for selecionado
         document.getElementById("ProdutoId").addEventListener("change", function () {
             const selected = this.options[this.selectedIndex];
             const valor = selected.getAttribute("data-valor");
-            document.getElementById("Valor").value = valor ?? "0.00";
+            document.getElementById("Valor").value = valor ?? "0,00";
             calcularValorTotal(); // Atualiza o valor total ao selecionar um produto
         });
 

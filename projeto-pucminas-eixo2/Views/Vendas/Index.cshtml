@@ -19,10 +19,13 @@
                 @Html.DisplayNameFor(model => model.Data)
             </th>
             <th>
+				@Html.DisplayNameFor(model => model.QuantidadeVenda)
+			</th>
+            <th>
                 @Html.DisplayNameFor(model => model.Valor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.QuantidadeVenda)
+                Valor Total
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Tipo)
@@ -43,10 +46,13 @@
                 @Html.DisplayFor(modelItem => item.Data)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Valor)
+				@Html.DisplayFor(modelItem => item.QuantidadeVenda)
+			</td>
+            <td>
+                @(item.Valor.ToString("C"))
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.QuantidadeVenda)
+                @((item.Valor * item.QuantidadeVenda).ToString("C"))
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Tipo)

@@ -14,6 +14,7 @@ namespace projeto_pucminas_eixo2.Models
         public string Cliente { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a data.")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Data { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o valor.")]
